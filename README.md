@@ -2,7 +2,7 @@
 
 Project website for the ISFA 2026 paper:
 
-"Real-Time Multimodal Orientation Control for Robotic Visual Inspection"
+"Admittance-Based Surface Alignment for Human-in-the-Loop Robotic Visual Inspection"
 
 ## Paper
 [PDF Link]
