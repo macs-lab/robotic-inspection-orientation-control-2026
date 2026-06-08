@@ -1,3 +1,18 @@
+# Robotic Inspection Orientation Control 2026
+
+Project website for the ISFA 2026 paper:
+
+"Real-Time Multimodal Orientation Control for Robotic Visual Inspection"
+
+## Paper
+[PDF Link]
+
+## Authors
+Antara Banerjee*, Colin Acton*, Xu Chen
+*- Denotes Equal Contribution
+
+## Website
+https://macs-lab.github.io/robotic-inspection-orientation-control-2026/
 # Nerfies
 
 This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
