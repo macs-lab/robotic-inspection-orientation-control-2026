@@ -164,17 +164,10 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <figure class="fig-caption has-text-centered">
-        <video id="hero-video" autoplay muted loop playsinline preload="metadata"
-               poster="./static/images/hero_poster.jpg"
-               aria-label="Headline demonstration: the inspection camera slewing to the surface normal while the operator nudges during alignment."
-               style="max-width:960px; width:100%; border-radius:10px;">
-          <source src="./static/videos/hero.webm" type="video/webm">
-          <source src="./static/videos/hero.mp4" type="video/mp4">
-          <img src="./static/images/hero_poster.jpg"
-               alt="UR5e inspection robot with an eye-in-hand camera aligning to a cylindrical part, an RViz surface-normal view, and an operator controlling shared autonomy with a handheld controller."
-               width="960" height="540"
-               style="max-width:960px; width:100%; border-radius:10px;">
-        </video>
+        <img src="./static/images/robot_cropped.png"
+             alt="Rendering of the robotic inspection system: an eye-in-hand depth camera streams local surface observations to a controller that realigns the end-effector with the estimated surface normal."
+             width="1375" height="725" loading="eager"
+             style="max-width:820px; width:100%; border-radius:10px;">
         <h2 class="subtitle has-text-centered" style="margin-top:0.8rem;">
           Real-time depth observations drive simulated task-space forces that realign the
           inspection camera with the local surface normal &mdash; in concert with operator input.
@@ -312,11 +305,17 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="section-divider"></div>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/zu-xbil4paw?rel=0&amp;showinfo=0"
-                  title="Demonstration video"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
+        <video id="hero-video" controls autoplay muted loop playsinline preload="metadata"
+               poster="./static/images/hero_poster.jpg"
+               aria-label="Demonstration: the inspection camera slewing to the surface normal while the operator nudges during alignment."
+               style="width:100%; border-radius:10px;">
+          <source src="./static/videos/hero.webm" type="video/webm">
+          <source src="./static/videos/hero.mp4" type="video/mp4">
+          <img src="./static/images/hero_poster.jpg"
+               alt="UR5e inspection robot with an eye-in-hand camera aligning to a cylindrical part, an RViz surface-normal view, and an operator controlling shared autonomy with a handheld controller."
+               width="960" height="540"
+               style="width:100%; border-radius:10px;">
+        </video>
       </div>
     </div>
   </div>
