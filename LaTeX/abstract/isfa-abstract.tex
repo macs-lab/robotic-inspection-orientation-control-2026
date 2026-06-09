@@ -1,0 +1,47 @@
+%TeX file for ISCIE International Symposium on
+%            Flexible Automation
+% Ver 2026.4.23
+%
+\documentclass[a4,10pt]{article}
+\pagestyle{empty}
+\usepackage{isfa-abstract}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\begin{document}
+\ConfName{Proceedings of the 2026 International Symposium on Flexible Automation (ISFA2026)}
+\ConfDate{July 19-23, 2026}
+\ConfCity{Okayama, Japan}
+\PaperNo{ISFA2026-3043}
+\title{
+Admittance-Based Surface Alignment for\\
+Human-in-the-Loop Robotic Visual Inspection
+}
+\author{
+Antara Banerjee${}^{1}$,
+Colin Acton${}^{2}$, and
+Xu Chen${}^{2}$ \\[1ex]
+${}^1$Department of Electrical and Computer Engineering \\
+University of Washington, Seattle, WA, U.S.A. \\
+${}^2$Department of Mechanical Engineering \\
+University of Washington, Seattle, WA, U.S.A. \\
+E-mail: \texttt{\{antara10, actonc, chx\}@uw.edu}
+}
+\maketitle
+\thispagestyle{empty}
+
+Robotic visual inspection of complex industrial components requires precise alignment between the end-effector and local surface geometry so that imaging optics remain normal to and focused on the region of interest. This alignment must be maintained in the presence of depth-sensing noise, surface irregularities, and the continuous involvement of a human inspector, who remains essential for the classification and action stages of anomaly response. Existing surface-following pipelines are typically organized around offline coverage planning over reconstructed geometry, or around discrete perception--correction loops driven by proximity or infrared sensing. These designs are poorly suited to shared-autonomy operation, where teleoperation inputs and perceptual updates arrive concurrently and must be reconciled in real time.
+
+This work presents an admittance-based surface alignment framework that unifies perception-driven orientation regulation and operator input within a single continuous control law. The end-effector is modeled as a virtual sphere of mass $m$ and radius $R$ moving through a viscous medium, producing a physically interpretable mass--damper system whose translational and rotational responses are synchronized through a modified rotational drag coefficient. Surface normals are estimated continuously from an eye-in-hand Intel RealSense D405 depth stream using RANSAC-based plane fitting followed by principal component analysis on the inlier set. The orientation error between the estimated surface normal and the camera optical axis is passed to a PD controller, whose output is interpreted as a virtual torque applied at a pivot offset from the sphere center. Newton--Euler analysis converts this torque into an equivalent force and torque at the sphere, which serve as inputs to the admittance dynamics; integration of the resulting accelerations yields Cartesian velocity commands transmitted to the robot through the ROS 2 Servo node.
+
+Controller gains are selected by matching the closed-loop characteristic polynomial to a critically damped second-order form, and a torque-saturation constraint derived from the actuator velocity limit and viscous drag bounds the admissible natural frequency for a given maximum expected orientation error. Because the framework operates as an outer-loop compliance layer atop the manipulator's existing joint servo loops, it is compatible with standard position- or velocity-controlled industrial platforms without requiring torque-level access.
+
+The framework was validated on a UR5e manipulator under two initial conditions: a $15^\circ$ error case operating entirely within the unsaturated regime, and a $40^\circ$ error case that drives the controller into torque saturation during the initial transient. In both cases, the measured orientation error, angular and linear velocities, and torque commands closely track the predictions of a synthetic MATLAB simulation of the same control pipeline. The framework attains a final mean orientation error of 0.007\,rad, matching prior position-based iterative methods that rely on infrared sensing \cite{Nakhaeinia}, while additionally providing continuous closed-loop control and a force-based formulation naturally suited to human-in-the-loop operation. A baseline comparison against ten manual teleoperation trials confirms substantially more repeatable convergence than unassisted operator alignment, establishing a practical foundation for integrating perception-driven orientation regulation with shared autonomy in robotic inspection.
+
+\begin{thebibliography}{9}
+\bibitem{Nakhaeinia} Nakhaeinia, D., 2018, ``Hybrid-Adaptive Switched Control for Robotic Manipulator Interacting with Arbitrary Surface Shapes under Multi-Sensory Guidance,'' Ph.D.\ dissertation, University of Ottawa, Ottawa, ON, Canada.
+\end{thebibliography}
+\end{document}

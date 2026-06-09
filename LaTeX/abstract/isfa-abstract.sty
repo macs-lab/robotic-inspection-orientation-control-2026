@@ -1,0 +1,88 @@
+
+% hyphenation penalty
+\hyphenpenalty=80\relax 
+\exhyphenpenalty=80\relax 
+\sloppy
+
+% paper size for A4
+
+%=============
+%\hoffset = 0pt
+%\voffset = 0pt
+%\topmargin = 0pt
+%\headheight = 0pt
+%\headsep = 0pt
+%\oddsidemargin = 0pt
+% \textheight = 634pt
+%\textheight = 690pt
+%\textwidth = 453pt
+%\paperheight = 845pt
+%\paperwidth = 597pt
+\RequirePackage[a4paper,margin=25mm]{geometry}
+%=============
+
+
+% font size
+\def\small{\@setfontsize{\small}{10}{12pt}}
+\def\footnotesize{\@setfontsize{\footnotesize}{9}{10.5pt}}
+\def\scriptsize{\@setfontsize{\scriptsize}{8}{9pt}}
+\def\tiny{\@setfontsize{\tiny}{6}{7pt}}
+\def\sublargesize{\@setfontsize{\sublargesize}{12}{14pt}}
+\def\large{\@setfontsize{\large}{12}{14pt}}
+\def\Large{\@setfontsize{\Large}{14}{17pt}}
+\def\LARGE{\@setfontsize{\LARGE}{17}{20pt}}
+\def\huge{\@setfontsize{\huge}{20}{24pt}}
+\def\Huge{\@setfontsize{\Huge}{24}{28pt}}
+
+%figure and table caption 
+\def\figurename{Fig.}
+\def\tablename{Table}
+
+% interline spacing
+\def\@normalsize{\@setsize\normalsize{10pt}\xpt\@xpt
+\abovedisplayskip 10pt plus2pt minus5pt\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip \z@ plus3pt\belowdisplayshortskip 6pt plus3pt
+minus3pt\let\@listi\@listI}
+
+%maketitle
+\newcommand{\ConfName}[1]{\def\@confname{#1}}
+\newcommand{\ConfDate}[1]{\def\@confdate{#1}}
+\newcommand{\ConfCity}[1]{\def\@confcity{#1}}
+\newcommand{\PaperNo}[1]{\def\@paperno{#1}}
+
+\ConfName{}
+%\ConfAcronym{}
+\ConfDate{}
+\ConfCity{}
+\PaperNo{}
+
+\def\@maketitle{%
+  \null
+  % ==================================
+  \noindent\hfill
+  \begin{minipage}{\textwidth}
+    \raggedleft
+    {\small \bfseries \sffamily \@confname\par}
+    {\small \bfseries \sffamily \@confdate, \@confcity\par}
+    \vspace{1\baselineskip}
+    {\LARGE \bfseries \sffamily \@paperno\par}
+  \end{minipage}
+  \vskip 2em
+  % ==================================
+  
+  \begin{center}
+  \let \footnote \thanks
+    \vskip -1mm
+    {\Large \bf
+      \@title
+     \par}
+    \vskip 6mm
+    {\small
+      \lineskip .5em%
+      \begin{tabular}[t]{c}
+        \@author
+      \end{tabular}      \par}
+  \end{center}
+  \par
+  \vskip 0.5em 
+}

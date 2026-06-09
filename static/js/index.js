@@ -65,13 +65,8 @@ $(document).ready(function() {
         player.currentTime = player.duration / 100 * this.value;
       })
     }, false);*/
-    preloadInterpolationImages();
-
-    $('#interpolation-slider').on('input', function(event) {
-      setInterpolationImage(this.value);
-    });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+    // The Nerfies interpolation viewer is unused on this page, so its 240-frame
+    // preload is intentionally disabled to keep the page lightweight.
 
     bulmaSlider.attach();
 
