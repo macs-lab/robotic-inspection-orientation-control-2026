@@ -16,6 +16,7 @@ Antara Banerjee\*, Colin Acton\*, Xu Chen — University of Washington
 
 ## Links
 - **Live site:** https://macs-lab.github.io/robotic-inspection-orientation-control-2026/
+- **Code (ROS 2 implementation):** https://github.com/antara1005/Inspection_Control
 - **Video:** https://youtu.be/zu-xbil4paw
 - **Paper:** drop the compiled PDF at `static/pdfs/paper.pdf` (the "Paper" button links here)
 
