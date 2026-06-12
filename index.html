@@ -229,6 +229,72 @@
 
       </div>
     </div>
+
+    <div class="columns is-centered" style="margin-top:1.5rem;">
+      <div class="column">
+        <div class="method-card">
+          <span class="tag is-rounded">a</span>
+          <h4 class="title is-5">Perception Driven Outer&mdash;Loop Control</h4>
+          <p>A new perception-driven, closed-loop orientation regula-
+             tor that couples real-time surface-normal estimation with
+             a virtual mass–damper outer-loop compliance frame-
+             work, such that the end-effector continuously realigns to
+             local surface geometry without requiring pre-computed
+             inspection trajectories.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="method-card">
+          <span class="tag is-rounded">b</span>
+          <h4 class="title is-5">Admittance&ndash;Based Control Formulation</h4>
+          <p>An admittance-based control formulation that maps ori-
+             entation error, teleoperation inputs, and human-in-the-
+             loop corrections into a single compliant motion stream.
+             This enables operator commands and perception-driven
+             corrections to coexist while respecting actuator torque
+             and velocity constraints.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="method-card">
+          <span class="tag is-rounded">c</span>
+          <h4 class="title is-5">Modular Outer&mdash;Loop Controller Design</h4>
+          <p>We design the controller as a modular outer-loop archi-
+             tecture issuing task-space velocity commands through
+             standard servo interfaces, such that the framework de-
+             ploys on industrial position/velocity-controlled manipu-
+             lators without modifying their internal control architec-
+             ture.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="method-card">
+          <span class="tag is-rounded">c</span>
+          <h4 class="title is-5">Experimental Validation On UR5e</h4>
+          <p>We validate the framework experimentally on a UR5e
+             platform with eye-in-hand depth sensing, demonstrating
+             stable convergence, robustness to perception noise, and
+             a final mean orientation error of 0.4◦ that matches prior
+             infrared-based methods while additionally supporting
+             real-time, human-in-the-loop operation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-top:1rem;">
+      <div class="column is-four-fifths">
+        <figure class="fig-caption">
+          <img src="./static/images/flowchartorientation.png"
+               alt="System architecture flowchart: depth acquisition, RANSAC/PCA normal estimation, orientation error, PD controller, virtual sphere dynamics, Newton-Euler force/torque, admittance model, and ROS 2 Servo execution."
+               width="2972" height="944" loading="lazy"
+               style="width:100%; border-radius:8px;">
+          <p>System architecture. Perception-driven orientation regulation runs as a modular outer
+             loop over the manufacturer's existing position/velocity controller, executed through the
+             ROS&nbsp;2 Servo node &mdash; no modification to the underlying servo architecture.</p>
+        </figure>
+      </div>
+    </div>
+
   </div>
 </section>
 <!-- Method overview -->
